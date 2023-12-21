@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Yonse! News</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="{% url 'home' %}"><h3>Yonse! News</h3></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		  <div class="navbar-nav">
+			<a class="nav-item nav-link active" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+			<a class="nav-item nav-link active" href="{% url 'about' %}">About</a>
+		  </div>
+		</div>
+	  </nav>
+
+	<div class="jumbotron">
+		<h3 style="text-align: center;">"Get all the latest local news in one place"</h3>
+		<ul class="nav justify-content-center">
+			<li class="nav-item">
+			  <a class="nav-link active" href="{% url 'site1' %}">[ Znbc </a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link active" href="{% url 'site2' %}">The Zambian Observer</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link active" href="{% url 'site3' %}">Lusaka Times ]</a>
+			  </li>
+		  </ul> <hr>
+		<form action="{% url 'search' %}" method="GET" class="nav justify-content-center">
+			<input type="text" name="q" placeholder="Search...">
+			<button type="submit" class="btn btn-primary">Search</button>
+		</form>
+	</div>
+
+	<h4 style="text-align:center;">[Headlines]</h4>
+	
+	<div class="container">
+
+		<div class="website-section">
+		  <h2>From, <b>Znbc</b> (Latest)</h2><hr>
+		  <div class="card-columns">
+			{% for headline in website1_headlines %}
+			  <div class="card">
+				<img class="card-img-top" src="{{ headline.image }}" alt="{{ headline.title }}">
+				<div class="card-body">
+				  <h5 class="card-title">
+					<a href="{{ headline.url }}" target="_blank">{{ headline.title }}</a>
+				  </h5> <hr>
+				  <p style="text-align:center;">{{ headline.scraped | timesince }} ago</p>
+				</div>
+			  </div>
+			{% empty %}
+			  <p>No recent news entries yet</p>
+			{% endfor %}
+		  </div>
+		  <a class="nav-link active" href="{% url 'site1' %}" style="text-align:center">[ click for more ]</a>
+		</div>
+	  
+		<div class="website-section">
+		  <h2>From, <b>The Lusaka Times</b> (Latest)</h2><hr>
+		  <div class="card-columns">
+			{% for headline in website3_headlines %}
+			  <div class="card">
+				<img class="card-img-top" src="{{ headline.image }}" alt="{{ headline.title }}">
+				<div class="card-body">
+				  <h5 class="card-title">
+					<a href="{{ headline.url }}" target="_blank">{{ headline.title }}</a>
+				  </h5><hr>
+				  <p style="text-align:center;">{{ headline.scraped | timesince }} ago</p>
+				</div>
+			  </div>
+			{% empty %}
+			  <p>No recent news entries yet</p>
+			{% endfor %}
+		  </div>
+		  <a class="nav-link active" href="{% url 'site3' %}" style="text-align:center">[ click for more ]</a>
+		</div>
+
+		<div class="website-section">
+			<h2>From, <b>The Zambian Observer</b> (Latest)</h2><hr>
+			<div class="card-columns">
+			  {% for headline in website2_headlines %}
+				<div class="card">
+				  <img class="card-img-top" src="{{ headline.image }}" alt="{{ headline.title }}">
+				  <div class="card-body">
+					<h5 class="card-title">
+					  <a href="{{ headline.url }}" target="_blank">{{ headline.title }}</a>
+					</h5><hr>
+					<p style="text-align:center;">{{ headline.scraped | timesince }} ago</p>
+				  </div>
+				</div>
+			  {% empty %}
+				<p>No recent news entries yet</p>
+			  {% endfor %}
+			</div>
+			<a class="nav-link active" href="{% url 'site2' %}" style="text-align:center">[ click for more ]</a>
+		  </div>
+	  </div>
+	  
+	  <style>
+		.website-section {
+		  margin-bottom: 40px;
+		}
+	  
+		.card {
+		  border: 1px solid #ddd;
+		  border-radius: 10px;
+		}
+	  
+		.card-title a {
+		  color: #333;
+		  text-decoration: none;
+		}
+	  
+		.card-title a:hover {
+		  color: #007bff;
+		}
+	  
+		.card-text {
+		  font-size: 16px;
+		}
+	  
+		.card-img-top {
+		  max-height: 200px;
+		  object-fit: cover;
+		  border-top-left-radius: 10px;
+		  border-top-right-radius: 10px;
+		}
+	  </style>
+	
+	<script
+	src="http://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

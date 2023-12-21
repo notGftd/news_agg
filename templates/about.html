@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Yonse! News</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="{% url 'home' %}"><h3>Yonse! News</h3></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		  <div class="navbar-nav">
+			<a class="nav-item nav-link active" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+			<a class="nav-item nav-link active" href="{% url 'about' %}">About</a>
+		  </div>
+		</div>
+	  </nav>
+
+	<div class="jumbotron">
+		<h3 style="text-align: center;">"Get all the latest local news in one place"</h3>
+		<ul class="nav justify-content-center">
+			<li class="nav-item">
+			  <a class="nav-link active" href="{% url 'site1' %}">[ Znbc </a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link active" href="{% url 'site2' %}">The Zambian Observer</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link active" href="{% url 'site3' %}">Lusaka Times ]</a>
+			  </li>
+		  </ul> <hr>
+	</div>
+
+	<div class="container">
+
+		<div class="website-section">
+			<div class="card-header">
+				<h2><b> Yonse! News</b></h2>
+			  </div>
+			  <div class="card-body">
+				<h5 class="card-title"><b>Disclaimer</b></h5>
+				<p class="lead">All aggregated texts and images are the sole property of their respective owners. 
+					The platform is made for educational purposes and no infringement is intended under Section 21(1)(f) of the Copyright and Performance Rights Act,
+					where allowance is made in this regard.
+				</p>
+				<h5 class="card-title"><b>About Us</b></h5>
+				<p class="lead">Yonse news is a local news aggregation service that aims to provide the Zambian
+					landscape with a central news hub of local news articles, collected from various Zambian owned news sources.
+				</p>
+				<h5 class="card-title"><b>Mission</b></h5>
+				 <p class="lead">To make local news, drawn from various sources, easily accessible for every Zambian wherever they may be, in a centralized space.</p>
+				<h5 class="card-title"><b>How it works</b></h5>
+				 <p class="lead">Yonse news articles are shown for not more than 36 hours, after which they can no longer be found on our platform.
+					This is to ensure that we keep our users up-to-date with the lastest local news, and also to allow the users to visit the source sites if they 
+					are interested in similar articles.
+				 </p>
+				<h5 class="card-title"><b>[Created By]</b></h5>
+				 <p class="lead"><b>Gift Kampamba</b>, an avid gamer ... Currently exploring life and it's many complexities.</p>
+			  </div>
+			</div> <hr/>
+			<h4>From, The <b>Yonse Team</b> ...of <b>One</b></h4><hr>
+			<div class="card-footer text-muted">
+		    <p style="text-align:center;"> a Gift Kampamba production <br> &#169;2023 Yonse News </p> 
+		    </div>
+	</div>
+	  
+	  <style>
+		.website-section {
+		  margin-bottom: 40px;
+		}
+	  
+		.card {
+		  border: 1px solid #ddd;
+		  border-radius: 10px;
+		}
+	  
+		.card-title a {
+		  color: #333;
+		  text-decoration: none;
+		}
+	  
+		.card-title a:hover {
+		  color: #007bff;
+		}
+	  
+		.card-text {
+		  font-size: 16px;
+		}
+	  
+		.card-img-top {
+		  max-height: 200px;
+		  object-fit: cover;
+		  border-top-left-radius: 10px;
+		  border-top-right-radius: 10px;
+		}
+	  </style>
+	
+	<script
+	src="http://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

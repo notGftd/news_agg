@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Yonse! News</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="{% url 'home' %}"><h3>Yonse! News</h3></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		  <div class="navbar-nav">
+			<a class="nav-item nav-link active" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+			<a class="nav-item nav-link active" href="{% url 'about' %}">About</a>
+		  </div>
+		</div>
+	  </nav>
+
+	<div class="jumbotron">
+		<h3 style="text-align: center;">[ <u>Znbc</u> ]</h3>
+		<ul class="nav justify-content-center">
+			<li class="nav-item">
+			  <a class="nav-link">"Get all the latest local news in one place"</a>
+			</li>
+		  </ul> <hr>
+		  <form method="POST" action="{% url 'scrape1' %}">
+			{% csrf_token %}
+			<button type="submit" class="btn btn-primary">Get News</button>
+		</form>
+	</div>
+  <div class="card-columns" style="padding: 10px; margin: 20px; border-radius: 25px; border: 2px solid #0096FF;">
+   {% for headline in headlines %}
+	<div class="card" style="width: 18rem;border:5px black solid; border-radius: 16px">
+  <img class="card-img-top" src = "{{ headline.image }}">
+  <div class="card-body">
+    <h5 class="card-title"><div class="card-body">
+      <a href="{{ headline.url }}"><h5 class="card-title">{{ headline.title }}</h5></a>
+    </div>
+    </h5>
+	<p style="text-align:center;">{{ headline.scraped | timesince }} ago</p>
+  </div>
+  </div>
+   {% empty%}
+  <p>No news entries yet</p>
+   {% endfor %}
+</div>
+</div>
+	<script
+	src="http://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
