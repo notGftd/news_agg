@@ -25,5 +25,4 @@ ensuring a dynamic and comprehensive final system.
 
 **Instructions**
 
-To run this project, clone it, and then run the command "pip install -r requirements" to install dependecncies,
-in the project root folder. Also create a .env file and set and a secret_key.
+To run this project, clone it, and then run the command "pip install -r requirements" in the project root folder, to install dependencies. Also create a .env file and set a secret_key.
