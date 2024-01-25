@@ -1,7 +1,7 @@
 **Local News Aggregation System Using Web Scraping(Yonse News)**
 
-This is the project I worked on as my final year project for my Computer Science degree. 
-It is a system the collects news from several local news sites and puts them in one place.
+This is the system I worked on as my final year project for my Computer Science degree. 
+It collects news articles from several local news sites and puts them in one place.
 
 **Abstract**
 
